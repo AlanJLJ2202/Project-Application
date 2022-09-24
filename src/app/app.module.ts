@@ -5,17 +5,44 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { HeaderComponent } from './header/header.component';
+import { PostCreateComponent } from './publicaciones/post-create/post-create.component';
+import { PostListComponent } from './publicaciones/post-list/post-list.component';
+import { PostService } from './publicaciones/post.service';
+import { ContenidoComponent } from './contenido/contenido.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    PostCreateComponent,
+    PostListComponent,
+    ContenidoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatExpansionModule
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
