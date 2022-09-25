@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+//import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { HeaderComponent } from './contenido/header/header.component';
 import { PostCreateComponent } from './publicaciones/post-create/post-create.component';
 import { PostListComponent } from './publicaciones/post-list/post-list.component';
