@@ -1,23 +1,25 @@
 <mat-card>
+
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-     <mat-form-field>
+
+      <mat-form-field>
        <input matInput
        type="text"
        name="title"
        ngModel
-       placeholder="Titulo"
+       placeholder="Ingresa tu nombre"
        required
        #title="ngModel">
        <mat-error *ngIf="title.invalid">El campo es obligatorio</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <textarea matInput rows="6"
+        <input matInput type="text"
         name="content"
         ngModel
+        placeholder="Ingresa el comentario que desee"
         required
         #content="ngModel">
-        </textarea>
         <mat-error *ngIf="content.invalid">El campo es obligatorio</mat-error>
        </mat-form-field>
 

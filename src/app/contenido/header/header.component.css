@@ -1,0 +1,20 @@
+.example-spacer {
+  justify-content: right;
+  background-color: transparent;
+}
+
+mat-toolbar {
+  background-color: grey;
+}
+
+span{
+  color: white;
+}
+
+mat-icon{
+  color: white;
+}
+
+.seccion{
+  margin-left: 8%;
+}

@@ -6,3 +6,7 @@
 .info-text{
   text-align: center;
 }
+
+.panel-content{
+  height: 50px;
+}
