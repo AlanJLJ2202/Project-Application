@@ -70,10 +70,20 @@ h1{
 }
 .image{
   text-align: right;
-  width: 10px;
-  height: 5px;
+  width: 10%;
+  height: 5%;
 }
 
+.like{
+  background-color: red;
+
+}
+
+.buy{
+  background-color: green;
+  margin-right: 15px;
+  margin-left: 15px;
+}
 
 
 
