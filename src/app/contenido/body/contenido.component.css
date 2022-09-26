@@ -12,6 +12,7 @@ body{
 .subtitulo{
   text-align: center;
   font-size: 40px;
+
 }
 
 .card{
@@ -55,12 +56,10 @@ h1{
 }
 
 .container {
-  width: 80%;
-  height: 30%;
-  background-color: aquamarine;
+  width: 95%;
   margin: 0 auto;
   display: flex;
-  margin-top: 15px;
+  margin-top: 30px;
   padding: 25px;
   color: black;
 }
@@ -98,15 +97,104 @@ h1{
 }
 
 .boton:hover{
-  background-color: rgb(133, 156, 156);
+  background: rgba(130, 126, 126, 0.66);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.5px);
+-webkit-backdrop-filter: blur(2.5px);
+}
+
+.example-card{
+  height: 460px;
+}
+
+mat-card-content{
+  height: 50px;
+}
+
+.gamer{
+  background-image: url('src\assets\images\gamer.png');
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  width: 2200px;
+}
+
+.container .imagen .gamer h3{
+  text-align: center;
+}
+
+.banner{
+  background-image: url('src\assets\images\banner.png');
+  background-size: cover;
+  background-position: center center;
+  height: 200px;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.pc_gamers .subtitulo{
+  text-align: center;
+  margin-top: 15%;
+  font-size: 25px;
+}
+.pc_gamers .parrafo{
+  text-align: center;
+  margin-top: 15%;
+}
+.pc_gamers button{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 15%;
+  background-color: rgb(164, 159, 159);
+
+}
+
+.pc_gamers button:hover{
+  background-color: red;
+  color: white;
+}
+
+.posts{
+  display: flex;
+  margin-top: 2%;
+}
+
+.comentarios{
+  width: 25%;
+  height: 100px;
+}
+
+.panel_redactar{
+  width: 30%;
+  height: 20%;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
 }
 
 
+.comentario{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 30px;
+}
 
+.text{
+  text-align: center;
+  color: grey;
+}
 
-
-
-
+.panel_comentarios{
+  width: 30%;
+  height: 20%;
+  margin-left: 7%;
+}
 
 
 
