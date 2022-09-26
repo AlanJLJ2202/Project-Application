@@ -1,14 +1,15 @@
-<mat-accordion class="panel-content" multi="true" *ngIf="posts.length > 0">
-
+<mat-accordion class="panel-content" multi="false" *ngIf="posts.length > 0" #firstAccordion="matAccordion">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header >
-      {{post.title}}
+        {{post.title}}
     </mat-expansion-panel-header>
       <mat-panel-description>
         {{post.content}}
       </mat-panel-description>
+      <mat-panel-description>
+        Autor: {{post.name}}
+      </mat-panel-description>
   </mat-expansion-panel>
-
 </mat-accordion>
 
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No hay publicaciones</p>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No hay comentarios</p>

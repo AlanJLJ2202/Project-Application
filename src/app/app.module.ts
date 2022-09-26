@@ -19,7 +19,7 @@ import { PostListComponent } from './publicaciones/post-list/post-list.component
 import { PostService } from './publicaciones/post.service';
 import { ContenidoComponent } from './contenido/body/contenido.component';
 import { FooterComponent } from './contenido/footer/footer.component';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import { FooterComponent } from './contenido/footer/footer.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ScrollingModule
   ],
   providers: [
     PostService

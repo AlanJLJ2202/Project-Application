@@ -1,6 +1,7 @@
 :host{
   display: block;
-  margin-top: 1rem;
+  height: 250px;
+  overflow-y: scroll;
 }
 
 .info-text{
@@ -8,5 +9,6 @@
 }
 
 .panel-content{
-  height: 50px;
+  height: 100px;
+  overflow-y: scroll;
 }

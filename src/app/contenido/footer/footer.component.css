@@ -4,12 +4,6 @@
   padding: 0%;
 }
 
-body {
-  font-family: "Outfit", sans-serif;
-  text-transform: capitalize;
-  background-color: rgb(0, 0, 0);
-}
-
 footer {
   background-image:linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("src\assets\images\colors.png");
   background-position: center center;
@@ -64,42 +58,7 @@ footer {
 .container .content .col .column p:first-child {
   margin-bottom: 25px;
 }
-.container .content .col .column p:not(p:first-child) {
-  margin-bottom: 12px;
-}
-.container .content .col:last-child {
-  gap: 15px;
-}
-.container .content .col:last-child .email {
-  display: flex;
-}
-.container .content .col:last-child .email input {
-  width: 300px;
-  height: 40px;
-  font-size: 17px;
-  color: white;
-  background-color: rgb(76, 76, 76);
-  padding-left: 10px;
-  border: 0;
-  outline: 0;
-}
-.container .content .col:last-child .email button {
-  width: 200px;
-  height: 40px;
-  color: white;
-  background-color: rgb(229, 39, 39);
-  padding-left: 10px;
-  border: 0;
-  outline: 0;
-  text-align: center;
-  margin-left: -30px;
-  font-weight: bold;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-}
+
 .container .content .col:last-child .social {
   display: flex;
   gap: 20px;
@@ -132,5 +91,11 @@ footer {
   object-fit: contain;
   background-color: white;
   padding: 10px 5px;
+}
+
+img:hover{
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+  border-radius: 30px;
 }
 

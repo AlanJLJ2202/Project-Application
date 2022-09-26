@@ -5,13 +5,24 @@
       <mat-form-field>
        <input matInput
        type="text"
-       name="title"
+       name="name"
        ngModel
        placeholder="Ingresa tu nombre"
        required
        #title="ngModel">
        <mat-error *ngIf="title.invalid">El campo es obligatorio</mat-error>
       </mat-form-field>
+
+
+      <mat-form-field>
+        <input matInput type="text"
+        name="title"
+        ngModel
+        placeholder="Ingresa el titulo"
+        required
+        #content="ngModel">
+        <mat-error *ngIf="content.invalid">El campo es obligatorio</mat-error>
+       </mat-form-field>
 
       <mat-form-field>
         <input matInput type="text"
