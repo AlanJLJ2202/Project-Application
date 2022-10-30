@@ -26,8 +26,8 @@ export class ArticuloListComponent implements OnInit, OnDestroy {
 
   }
   ngOnInit(){
-    this.articulosService.getPosts();
-    this.articuloSub = this.articulosService.getPostsUpadateListener()
+    this.articulosService.getArticulos();
+    this.articuloSub = this.articulosService.getArticulosUpadateListener()
     .subscribe((articulos: Articulo[]) =>{
       this.articulos = articulos;
     });
@@ -37,7 +37,8 @@ export class ArticuloListComponent implements OnInit, OnDestroy {
     this.articuloSub.unsubscribe();
   }
 
-  onDelete(postId: string){
-    this.articulosService.deletePost(postId);
+  onDelete(id: string){
+    this.articulosService.deleteArticulo(id);
   }
+
 }

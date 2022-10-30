@@ -6,45 +6,77 @@
   <div class="fondo">
 
     <div class="form">
-      <form (submit)="onAddArticulo(postForm)" #postForm="ngForm">
+      <form (submit)="onSaveArticulo(articuloForm)" #articuloForm="ngForm">
         <div class="separador">
           <div class="textfield">
-
-            <mat-form-field>
-              <textarea matInput
-              type="text"
-              name="name"
-              ngModel
-              placeholder="Ingresa tu nombre"
-              required
-              #title="ngModel"></textarea>
-              <mat-error *ngIf="title.invalid">El campo es obligatorio</mat-error>
-             </mat-form-field>
 
 
              <mat-form-field>
                <textarea matInput type="text"
-               name="title"
+               name="nombre"
                ngModel
-               placeholder="Ingresa el titulo"
+               placeholder="Ingresa el nombre del producto"
                required
-               #content="ngModel"></textarea>
-               <mat-error *ngIf="content.invalid">El campo es obligatorio</mat-error>
+               #nombre="ngModel"></textarea>
+               <mat-error *ngIf="nombre.invalid">El campo es obligatorio</mat-error>
               </mat-form-field>
 
              <mat-form-field>
                <textarea matInput type="text"
-               name="content"
+               name="precio"
                ngModel
-               placeholder="Ingresa el comentario que desee"
+               placeholder="Ingresa precio de venta:"
                required
-               #content="ngModel"></textarea>
-               <mat-error *ngIf="content.invalid">El campo es obligatorio</mat-error>
+               #precio="ngModel"></textarea>
+               <mat-error *ngIf="">El campo es obligatorio</mat-error>
+              </mat-form-field>
+
+
+              <mat-form-field>
+                <textarea matInput
+                type="text"
+                name="descripcion"
+                ngModel
+                placeholder="Ingresa descripción de producto"
+                required
+                #descripcion="ngModel"></textarea>
+                <mat-error *ngIf="">El campo es obligatorio</mat-error>
+               </mat-form-field>
+
+               <mat-form-field>
+                <textarea matInput
+                type="text"
+                name="cantidad"
+                ngModel
+                placeholder="Ingresa cantidad de producto"
+                required
+                #cantidad="ngModel"></textarea>
+                <mat-error *ngIf="">El campo es obligatorio</mat-error>
+               </mat-form-field>
+
+               <!--<mat-form-field>
+                <textarea matInput
+                type="text"
+                name="categoria"
+                ngModel
+                placeholder="Ingresa categoria de producto"
+                required
+                #categoria="ngModel"></textarea>
+                <mat-error *ngIf="">El campo es obligatorio</mat-error>
+               </mat-form-field>-->
+              <mat-form-field appearance="fill">
+                <mat-label>Seleccione la categoria</mat-label>
+                <select matNativeControl required>
+                <option value="Ropa">Ropa</option>
+                <option value="Calzado">Calzado</option>
+                <option value="Joyeria">Joyeria</option>
+                <option value="Deporte">Deporte</option>
+                </select>
               </mat-form-field>
             </div>
 
             <div class="dropzone">
-              <input type="file" #fileDropRef id="fileDropRef">
+              <input type="file" #fileDropRef id="fileDropRef" (onchange)="onFileSelected($event)">
               <img src="" alt="">
               <h3>Arrastra y suelta tu imagen aqui</h3>
               <h3>ó</h3>

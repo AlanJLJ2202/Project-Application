@@ -25,6 +25,7 @@ import { ArticuloAddComponent } from './articulos/articulo-add/articulo-add.comp
 import { ContenidoComponent } from './contenido/body/contenido.component';
 import { FooterComponent } from './contenido/footer/footer.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { DndDirective } from './dnd.directive';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     PostCreateComponent,
     PostListComponent,
     ContenidoComponent,
-    FooterComponent
+    FooterComponent,
+    DndDirective
   ],
   imports: [
     BrowserModule,
