@@ -1,0 +1,67 @@
+<body>
+  <div class="card-titulo">
+
+  <h1 class="titulo">AGREGAR ARTICULO</h1>
+  </div>
+  <div class="fondo">
+
+    <div class="form">
+      <form (submit)="onAddArticulo(postForm)" #postForm="ngForm">
+        <div class="separador">
+          <div class="textfield">
+
+            <mat-form-field>
+              <textarea matInput
+              type="text"
+              name="name"
+              ngModel
+              placeholder="Ingresa tu nombre"
+              required
+              #title="ngModel"></textarea>
+              <mat-error *ngIf="title.invalid">El campo es obligatorio</mat-error>
+             </mat-form-field>
+
+
+             <mat-form-field>
+               <textarea matInput type="text"
+               name="title"
+               ngModel
+               placeholder="Ingresa el titulo"
+               required
+               #content="ngModel"></textarea>
+               <mat-error *ngIf="content.invalid">El campo es obligatorio</mat-error>
+              </mat-form-field>
+
+             <mat-form-field>
+               <textarea matInput type="text"
+               name="content"
+               ngModel
+               placeholder="Ingresa el comentario que desee"
+               required
+               #content="ngModel"></textarea>
+               <mat-error *ngIf="content.invalid">El campo es obligatorio</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="dropzone">
+              <input type="file" #fileDropRef id="fileDropRef">
+              <img src="" alt="">
+              <h3>Arrastra y suelta tu imagen aqui</h3>
+              <h3>ó</h3>
+              <label for="fileDropRef">Explorar archivos</label>
+            </div>
+
+        </div>
+         <button
+         mat-raised-button
+         color="warn"
+         type="submit">
+          Guardar comentario
+         </button>
+    </form>
+
+    </div>
+
+  </div>
+
+</body>

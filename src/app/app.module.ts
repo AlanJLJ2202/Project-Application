@@ -13,19 +13,26 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 //import { MatCarouselModule } from '@ngmodule/material-carousel';
+
+import { ArticuloListComponent } from './articulos/articulo-list/articulo-list.component';
+import { ArticuloService } from './articulos/articulo.service';
+import { PostService } from './publicaciones/post.service';
 import { HeaderComponent } from './contenido/header/header.component';
 import { PostCreateComponent } from './publicaciones/post-create/post-create.component';
 import { PostListComponent } from './publicaciones/post-list/post-list.component';
-import { PostService } from './publicaciones/post.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ArticuloAddComponent } from './articulos/articulo-add/articulo-add.component';
 import { ContenidoComponent } from './contenido/body/contenido.component';
 import { FooterComponent } from './contenido/footer/footer.component';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ArticuloAddComponent,
+    ArticuloListComponent,
     PostCreateComponent,
     PostListComponent,
     ContenidoComponent,
@@ -42,9 +49,11 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatToolbarModule,
     MatIconModule,
     MatExpansionModule,
-    ScrollingModule
+    ScrollingModule,
+    HttpClientModule,
   ],
   providers: [
+    ArticuloService,
     PostService
   ],
   bootstrap: [AppComponent]

@@ -1,7 +1,13 @@
+
 <body>
+    <div class="card-titulo">
+    <h1 class="titulo">TIENDA ONLINE</h1>
+    </div>
     <p class="subtitulo">
       Articulos
     </p>
+
+    <app-articulo-list></app-articulo-list>
     <div class="carrusel">
       <div class="card">
         <mat-card class="example-card">
@@ -43,13 +49,18 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
+
+          <!--<button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
             <mat-icon>favorite</mat-icon>
-          </button>
-          <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
+          </button>-->
+
+          <a mat-button color="primary" > EDITAR </a>
+
+          <!--<button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
             <mat-icon>add_shopping_cart</mat-icon>
-          </button>
-          <button mat-icon-button>Compartir</button>
+          </button>-->
+          <button mat-button color="warn" > ELIMINAR</button>
+          <!--<button mat-icon-button>Compartir</button>-->
         </mat-card-actions>
       </mat-card>
    </div>
@@ -128,19 +139,19 @@
 
 
     <div class="banner">
-
     </div>
 
     <div class="posts">
-
       <div class="comentarios">
         <p class="comentario">¿Que opinas acerca de las ofertas?</p>
         <br>
         <p class="text">Leemos tus comentarios :)</p>
       </div>
 
+
       <app-post-create class="panel_redactar"></app-post-create>
       <app-post-list class="panel_comentarios"></app-post-list>
+
 
     </div>
 

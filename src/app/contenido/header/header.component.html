@@ -2,21 +2,28 @@
 <div class="header">
 
   <mat-toolbar  class="example-spacer">
+
+    <div [routerLink]="['/create']" class="seccion">
+      <a>Agregar articulo</a>
+
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
     <!--
-     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-       <mat-icon>menu</mat-icon>
-     </button>
-    -->
-     <div class="seccion">
+      <div class="seccion">
        <span>Explorar</span>
 
        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
          <mat-icon>explore</mat-icon>
        </button>
-     </div>
+      </div>
+    -->
+
 
      <div class="seccion">
-       <span>Carrito</span>
+       <a>Carrito</a>
 
        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
          <mat-icon>shopping_cart</mat-icon>
@@ -24,11 +31,11 @@
      </div>
 
 
-     <div class="seccion">
-       <span>Cuenta</span>
+     <div [routerLink]="['/']" class="seccion">
+       <a>Home</a>
 
        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>account_circle</mat-icon>
+        <mat-icon>home</mat-icon>
       </button>
      </div>
 
@@ -47,9 +54,7 @@
     </div>
    </div>
 
-   <div class="card">
-    <h1 class="titulo">TIENDA ONLINE</h1>
-   </div>
+
 
 </div>
 

@@ -1,6 +1,4 @@
-mat-form-field, textarea{
-    width: 100%;
-}
+
 
 form{
   background-color: transparent;
@@ -9,3 +7,5 @@ form{
 mat-card{
   background-color: transparent;
 }
+
+
