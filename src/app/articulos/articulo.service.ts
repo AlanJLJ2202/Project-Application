@@ -17,12 +17,11 @@ export class ArticuloService{
   getArticulos(){
     this.http.get<{message: string, articulos: any}>('http://localhost:3000/api')//Aque ruta va a llegar la solicitud
     .pipe(map((articuloData)=>{
-      return articuloData.articulos.map(articulo=>{
+      return articuloData.articulos.map(articulo => {
         return{
         nombre: articulo.nombre,
         precio: articulo.precio,
         descripcion: articulo.descripcion,
-        imagen: articulo.imagen,
         cantidad: articulo.cantidad,
         categoria: articulo.categoria,
         id: articulo._id
@@ -45,20 +44,18 @@ export class ArticuloService{
       nombre: string,
       precio: number,
       descripcion: string,
-      imagen: string,
       cantidad: number,
       categoria: string}>(
       "http://localhost:3000/api/" + id); //la ruta del lado del servidor
   }
 
-  addArticulo(nombre: string, precio: number, descripcion: string, imagen: string, cantidad: number, categoria: string){
+  addArticulo(nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string){
 
     const articulo: Articulo =
     { id: null,
       nombre: nombre,
       precio: precio,
       descripcion: descripcion,
-      imagen: null,
       cantidad: cantidad,
       categoria: categoria};
 
@@ -77,12 +74,11 @@ export class ArticuloService{
     precio:number,
     descripcion:string,
     categoria:string,
-    imagen:string,
     cantidad:number){
     {
 
     const articulo: Articulo =
-    {id:id, nombre:nombre, precio: precio, descripcion:descripcion, categoria:categoria, imagen:null, cantidad:cantidad};
+    {id:id, nombre:nombre, precio: precio, descripcion:descripcion, categoria:categoria, cantidad:cantidad};
 
     this.http.put("http://localhost:3000/api/" + id, articulo)
     .subscribe(response => {

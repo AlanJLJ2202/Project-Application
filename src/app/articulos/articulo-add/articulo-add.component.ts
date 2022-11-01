@@ -70,7 +70,6 @@ export class ArticuloAddComponent {
         form.value.nombre,
         form.value.precio,
         form.value.descripcion,
-        null,
         form.value.cantidad,
         form.value.categoria
       );

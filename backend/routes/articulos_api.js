@@ -9,7 +9,6 @@ router.post("",(req, res, next)=>{
     nombre: req.body.nombre,
     precio: req.body.precio,
     descripcion: req.body.descripcion,
-    //imagen: req.body.imagen,
     cantidad: req.body.cantidad,
     categoria: req.body.categoria
   });
@@ -29,12 +28,11 @@ router.put("/:id", (req, res, next)=>{
   nombre: req.body.nombre,
   precio: req.body.precio,
   descripcion: req.body.descripcion,
-  imagen: req.body.imagen,
   cantidad: req.body.cantidad,
   categoria: req.body.categoria
 });
   articulo.updateOne({_id: req.params.id}, articulo).then(result=>{
-    res.status(200).json({message: "Post updated succesfully"});
+    res.status(200).json({message: "Articulo updated succesfully"});
   })
 });
 
@@ -42,7 +40,7 @@ router.get('', (req,res,next)=>{
  Articulo.find().then(documents =>{
   res.status(200).json({
     message: 'Publicaciones expuestas con Exito!',
-    posts: documents
+    articulos: documents
   });
  });
 });

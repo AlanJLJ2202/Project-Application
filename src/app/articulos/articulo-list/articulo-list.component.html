@@ -1,39 +1,15 @@
-<div class="carrusel">
+<div class="carrusel" *ngFor="let articulo of articulos">
   <div class="card">
     <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Tenis</mat-card-title>
-        <mat-card-subtitle>$ 250 C/U</mat-card-subtitle>
+        <mat-card-title>articulo.nombre</mat-card-title>
+        <mat-card-subtitle>$ articulo.precio</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="https://www.10wallpaper.com/wallpaper/1366x768/1910/Nike_Sports_Shoes_2019_HD_Desktop_1366x768.jpg" height="250px" width="60px" alt="Photo of a Shiba Inu">
       <mat-card-content>
         <p>
-          Tenis para el deporte 100% fabricados de tela para una mejor comodida.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-        <button mat-icon-button>Compartir</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-  <div class="card">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Tenis</mat-card-title>
-        <mat-card-subtitle>$ 250 C/U</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://www.10wallpaper.com/wallpaper/1366x768/1910/Nike_Sports_Shoes_2019_HD_Desktop_1366x768.jpg" height="250px" width="60px" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          Tenis para el deporte 100% fabricados de tela para una mejor comodida.
+          articulo.descripcion
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -50,4 +26,4 @@
 </div>
 
 
-<p class= "info-text mat-body-1 " *ngIf="articulos.length <= 0">No hay publicaciones agregadas</p>
+<p class= "info-text mat-body-1 " *ngIf="articulos.length <= 0">No hay articulos agregados</p>
