@@ -12,17 +12,20 @@
 
 
              <mat-form-field>
-               <textarea matInput type="text"
+               <textarea matInput
+               type="text"
                name="nombre"
                ngModel
                placeholder="Ingresa el nombre del producto"
                required
                #nombre="ngModel"></textarea>
+
                <mat-error *ngIf="nombre.invalid">El campo es obligatorio</mat-error>
               </mat-form-field>
 
              <mat-form-field>
-               <textarea matInput type="text"
+               <textarea matInput
+               type="number"
                name="precio"
                ngModel
                placeholder="Ingresa precio de venta:"
@@ -45,7 +48,7 @@
 
                <mat-form-field>
                 <textarea matInput
-                type="text"
+                (keypress)="numberOnly($event)" type="text"
                 name="cantidad"
                 ngModel
                 placeholder="Ingresa cantidad de producto"
@@ -64,15 +67,21 @@
                 #categoria="ngModel"></textarea>
                 <mat-error *ngIf="">El campo es obligatorio</mat-error>
                </mat-form-field>-->
-              <mat-form-field appearance="fill">
-                <mat-label>Seleccione la categoria</mat-label>
-                <select matNativeControl required>
-                <option value="Ropa">Ropa</option>
-                <option value="Calzado">Calzado</option>
-                <option value="Joyeria">Joyeria</option>
-                <option value="Deporte">Deporte</option>
-                </select>
-              </mat-form-field>
+
+
+
+
+                  <mat-label>Seleccione la categoria</mat-label>
+                  <select class='caja' [formControl]='selectControl' (change)='test()'>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Calzado">Calzado</option>
+                    <option value="Joyeria">Joyeria</option>
+                    <option value="Deporte">Deporte</option>
+                    </select>
+
+
+
+
             </div>
 
             <div class="dropzone">

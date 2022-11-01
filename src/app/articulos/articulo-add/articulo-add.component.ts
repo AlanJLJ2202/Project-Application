@@ -4,6 +4,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ArticuloService } from '../articulo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Articulo } from '../articulo.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-articulo-add',
@@ -18,24 +19,30 @@ export class ArticuloAddComponent {
   mode = "create";
   private id : string;
   public articulo: Articulo;
+  public seleccionado = "Ropa";
+  public selectControl : FormControl = new FormControl();
 
+  constructor (public articuloService: ArticuloService, public router: ActivatedRoute) {
 
-  constructor (public articuloService: ArticuloService, public router: ActivatedRoute) {}
-
-
-  onAddArticulo(form: NgForm){
-    if (form.invalid) {
-      return;
-    }else{
-      console.log("Articulo agregado");
-
-    }
   }
 
+
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
+  }
 
   onFileSelected(event){
     console.log(event);
   }
+
+    test(){
+      this.seleccionado = this.selectControl.value;
+    }
 
 
 
@@ -45,14 +52,16 @@ export class ArticuloAddComponent {
     }
     if(this.mode == "create"){
 
-      this.articuloService.addArticulo(
+      console.log(this.seleccionado);
+
+      /*this.articuloService.addArticulo(
         form.value.nombre,
         form.value.precio,
         form.value.descripcion,
         null,
         form.value.cantidad,
         form.value.categoria
-        );
+        );*/
 
 
     }else{

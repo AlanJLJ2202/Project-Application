@@ -5,13 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
 //import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 import { ArticuloListComponent } from './articulos/articulo-list/articulo-list.component';
@@ -53,6 +56,9 @@ import { DndDirective } from './dnd.directive';
     MatExpansionModule,
     ScrollingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     ArticuloService,

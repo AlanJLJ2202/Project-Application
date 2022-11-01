@@ -89,7 +89,7 @@ h3 {
 }
 
 .card-titulo{
-  height: 20%;
+  height: 200px;
   width: 60%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.22);
@@ -117,7 +117,37 @@ mat-form-field, textarea{
   font-size: medium;
 }
 
+mat-label{
+  margin-top: 30px;
+  margin-left: 20px;
+}
 
+.caja {
+  margin-left: 20px;
+  border:1px solid #d9d9d9;
+  height:30px;
+  overflow: hidden;
+  position:relative;
+}
+
+
+
+
+select:focus{ outline: none;}
+
+.caja::after{
+	content:"\025be";
+	display:table-cell;
+	padding-top:7px;
+	text-align:center;
+	width:30px;
+	height:30px;
+	background-color:#d9d9d9;
+	position:absolute;
+	top:0;
+	right:0px;
+	pointer-events: none;
+}
 
 
 
