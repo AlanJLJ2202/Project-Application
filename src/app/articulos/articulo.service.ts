@@ -73,8 +73,8 @@ export class ArticuloService{
     nombre:string,
     precio:number,
     descripcion:string,
-    categoria:string,
-    cantidad:number){
+    cantidad:number,
+    categoria:string){
     {
 
     const articulo: Articulo =
@@ -82,10 +82,13 @@ export class ArticuloService{
 
     this.http.put("http://localhost:3000/api/" + id, articulo)
     .subscribe(response => {
-    const updatePost=[...this.articulos];
-    const oldPostIndex = updatePost.findIndex(p => p.id === articulo.id);
-    updatePost[oldPostIndex]=articulo;
-    this.articulos=updatePost;
+
+    console.log(response);
+
+    const updateArticulo=[...this.articulos];
+    const oldPostIndex = updateArticulo.findIndex(p => p.id === articulo.id);
+    updateArticulo[oldPostIndex]=articulo;
+    this.articulos=updateArticulo;
     this.articuloUpdate.next([...this.articulos]);
       });}
     }

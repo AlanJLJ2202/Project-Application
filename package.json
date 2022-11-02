@@ -25,6 +25,7 @@
     "express": "^4.18.2",
     "mongoose": "^6.7.0",
     "rxjs": "~7.5.0",
+    "simple-ng-loader": "^2.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

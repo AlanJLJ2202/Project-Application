@@ -1,4 +1,3 @@
-
 <body>
     <div class="card-titulo">
     <h1 class="titulo">TIENDA ONLINE</h1>
@@ -8,112 +7,7 @@
     </p>
 
     <app-articulo-list></app-articulo-list>
-    <div class="carrusel">
-      <div class="card">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Libro</mat-card-title>
-            <mat-card-subtitle>$150 C/U</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://www.pngitem.com/pimgs/m/196-1960482_los-libros-la-coleccin-de-libro-de-texto.png" height="250px" width="60px" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              Saga completa de Harry Potter, 7 libros.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
-              <mat-icon>favorite</mat-icon>
-            </button>
-            <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-              <mat-icon>add_shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>Compartir</button>
-          </mat-card-actions>
-        </mat-card>
-     </div>
 
-
-     <div class="card">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Relojes</mat-card-title>
-          <mat-card-subtitle>$ 1,500 C/U</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://www.uhrenlux.de/media/catalog/product/cache/2/image/1200x/040ec09b1e35df139433887a97daa66f/UF/UF6855-2.jpg" height="250px" width="60px" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            Reloj para caballero.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-
-          <!--<button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>favorite</mat-icon>
-          </button>-->
-
-          <a mat-button color="primary" > EDITAR </a>
-
-          <!--<button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>add_shopping_cart</mat-icon>
-          </button>-->
-          <button mat-button color="warn" > ELIMINAR</button>
-          <!--<button mat-icon-button>Compartir</button>-->
-        </mat-card-actions>
-      </mat-card>
-   </div>
-
-   <div class="card">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Playeras</mat-card-title>
-        <mat-card-subtitle>$ 150 C/U</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://www.kindpng.com/picc/m/59-592795_playeras-de-tigres-2019-hd-png-download.png" height="250px" width="60px" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          Playera termica deportiva realizada de material de algodon con poliester.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-        <button mat-icon-button>Compartir</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-  <div class="card">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Tenis</mat-card-title>
-        <mat-card-subtitle>$ 250 C/U</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://www.10wallpaper.com/wallpaper/1366x768/1910/Nike_Sports_Shoes_2019_HD_Desktop_1366x768.jpg" height="250px" width="60px" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          Tenis para el deporte 100% fabricados de tela para una mejor comodida.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-        <button mat-icon-button>Compartir</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-    </div>
 
     <div class="ver_mas">
       <p class="subtitulo">LOS MEJORES PRECIOS<p>
@@ -141,20 +35,7 @@
     <div class="banner">
     </div>
 
-    <div class="posts">
-      <div class="comentarios">
-        <p class="comentario">¿Que opinas acerca de las ofertas?</p>
-        <br>
-        <p class="text">Leemos tus comentarios :)</p>
-      </div>
-
-
-      <app-post-create class="panel_redactar"></app-post-create>
-      <app-post-list class="panel_comentarios"></app-post-list>
-
-
-    </div>
-
+    <app-footer></app-footer>
 
 </body>
 

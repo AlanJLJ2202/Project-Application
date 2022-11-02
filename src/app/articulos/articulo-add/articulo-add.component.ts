@@ -22,10 +22,30 @@ export class ArticuloAddComponent {
   public seleccionado = "Ropa";
   public selectControl : FormControl = new FormControl();
 
-  constructor (public articuloService: ArticuloService, public router: ActivatedRoute) {
+  constructor (public articuloService: ArticuloService, public router: ActivatedRoute) {}
 
-  }
 
+  ngOnInit(){
+    this.router.paramMap.subscribe((paramMap) => {
+      if (paramMap.has('id')){
+        this.mode = 'edit';
+        this.id = paramMap.get('id');
+        this.articuloService.getArticulo(this.id).subscribe(articuloData => {
+          this.articulo = {
+            id: articuloData._id,
+            nombre: articuloData.nombre,
+            precio: articuloData.precio,
+            descripcion: articuloData.descripcion,
+            cantidad: articuloData.cantidad,
+            categoria: articuloData.categoria}
+        });
+
+      }else{
+        this.mode = 'create';
+        this.id = null;
+      }
+    });
+ }
 
   numberOnly(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -40,9 +60,9 @@ export class ArticuloAddComponent {
     console.log(event);
   }
 
-    test(){
+  test(){
       this.seleccionado = this.selectControl.value;
-    }
+  }
 
 
 
@@ -54,24 +74,26 @@ export class ArticuloAddComponent {
 
       console.log(this.seleccionado);
 
-      /*this.articuloService.addArticulo(
+      this.articuloService.addArticulo(
         form.value.nombre,
         form.value.precio,
         form.value.descripcion,
-        null,
         form.value.cantidad,
-        form.value.categoria
-        );*/
+        this.seleccionado
+        );
 
 
     }else{
+
+      console.log('entra en actualizar');
+
       this.articuloService.updateArticulo(
         this.id,
         form.value.nombre,
         form.value.precio,
         form.value.descripcion,
         form.value.cantidad,
-        form.value.categoria
+        this.seleccionado
       );
     }
   form.resetForm();

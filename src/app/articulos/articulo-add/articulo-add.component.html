@@ -15,7 +15,7 @@
                <textarea matInput
                type="text"
                name="nombre"
-               ngModel
+               [ngModel] = "articulo?.nombre"
                placeholder="Ingresa el nombre del producto"
                required
                #nombre="ngModel"></textarea>
@@ -25,9 +25,9 @@
 
              <mat-form-field>
                <textarea matInput
-               type="number"
+               (keypress)="numberOnly($event)" type="text"
                name="precio"
-               ngModel
+               [ngModel] = "articulo?.precio"
                placeholder="Ingresa precio de venta:"
                required
                #precio="ngModel"></textarea>
@@ -39,7 +39,7 @@
                 <textarea matInput
                 type="text"
                 name="descripcion"
-                ngModel
+                [ngModel] = "articulo?.descripcion"
                 placeholder="Ingresa descripción de producto"
                 required
                 #descripcion="ngModel"></textarea>
@@ -50,7 +50,7 @@
                 <textarea matInput
                 (keypress)="numberOnly($event)" type="text"
                 name="cantidad"
-                ngModel
+                [ngModel] = "articulo?.cantidad"
                 placeholder="Ingresa cantidad de producto"
                 required
                 #cantidad="ngModel"></textarea>

@@ -3,23 +3,26 @@
     <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>articulo.nombre</mat-card-title>
-        <mat-card-subtitle>$ articulo.precio</mat-card-subtitle>
+        <mat-card-title>{{articulo.nombre}}</mat-card-title>
+        <mat-card-subtitle>$ {{articulo.precio}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://www.10wallpaper.com/wallpaper/1366x768/1910/Nike_Sports_Shoes_2019_HD_Desktop_1366x768.jpg" height="250px" width="60px" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="https://i.pinimg.com/564x/22/23/ef/2223ef571eded8888744cfd3b59b8318.jpg" height="300px" width="200px" alt="Photo of a Shiba Inu">
       <mat-card-content>
         <p>
-          articulo.descripcion
+          {{articulo.descripcion}}
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-fab class="like" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-        <button mat-icon-button>Compartir</button>
+          <button mat-fab class="edit"
+          [routerLink]="['/edit', articulo.id]" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button (click)="onDelete(articulo.id)"
+          mat-fab class="delete" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+
       </mat-card-actions>
     </mat-card>
   </div>
