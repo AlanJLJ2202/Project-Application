@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
 
 
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./contenido.component.css']
 })
 
+
 export class ContenidoComponent{
+
+  public spinner = true;
+
+  constructor() { }
+
+  ngOnInit(){
+    setTimeout(() =>{this.spinner = false;},2500);
+  }
+
+
 }

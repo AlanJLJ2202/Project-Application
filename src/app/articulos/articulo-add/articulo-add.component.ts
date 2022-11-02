@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ArticuloService } from '../articulo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Articulo } from '../articulo.model';
@@ -21,11 +20,18 @@ export class ArticuloAddComponent {
   public articulo: Articulo;
   public seleccionado = "Ropa";
   public selectControl : FormControl = new FormControl();
+  public spinner = true;
 
   constructor (public articuloService: ArticuloService, public router: ActivatedRoute) {}
 
-
   ngOnInit(){
+
+    console.log(this.spinner);
+
+    setTimeout(() =>{this.spinner = false;},2500);
+
+    console.log(this.spinner);
+
     this.router.paramMap.subscribe((paramMap) => {
       if (paramMap.has('id')){
         this.mode = 'edit';

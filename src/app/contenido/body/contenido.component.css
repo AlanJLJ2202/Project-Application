@@ -10,6 +10,11 @@ body{
   flex: 1 1 auto;
 }
 
+mat-progress-spinner{
+  margin-top: 8%;
+  margin-left: 45%;
+}
+
 .subtitulo{
   text-align: center;
   font-size: 40px;

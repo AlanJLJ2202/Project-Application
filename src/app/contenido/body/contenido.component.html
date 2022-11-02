@@ -2,38 +2,49 @@
     <div class="card-titulo">
     <h1 class="titulo">TIENDA ONLINE</h1>
     </div>
-    <p class="subtitulo">
-      Articulos
-    </p>
-
-    <app-articulo-list></app-articulo-list>
 
 
-    <div class="ver_mas">
-      <p class="subtitulo">LOS MEJORES PRECIOS<p>
-      <p class = "parrafo">Nueva temporada de descuentos</p>
-      <button mat-raised-button class="boton">Ver mas</button>
-    </div>
+    <mat-progress-spinner mode="indeterminate" *ngIf="spinner == true">
+    </mat-progress-spinner>
 
 
+    <div class="delay" *ngIf="spinner == false">
 
-    <div class="container">
-      <div class="imagen">
-        <div class="gamer">
-        </div>
+      <p class="subtitulo">
+        Articulos
+      </p>
 
-        <div class="pc_gamers">
-          <p class="subtitulo"> Los videojuegos se han convertido en un componente mas de la vida cotidiana!</p>
-          <p class="parrafo">Descubre consolas y equipo gamer</p>
-          <button mat-raised-button class="boton">Ver mas</button>
-        </div>
+      <app-articulo-list></app-articulo-list>
 
+      <div class="ver_mas">
+        <p class="subtitulo">LOS MEJORES PRECIOS<p>
+        <p class = "parrafo">Nueva temporada de descuentos</p>
+        <button mat-raised-button class="boton">Ver mas</button>
       </div>
+
+
+
+      <div class="container">
+        <div class="imagen">
+          <div class="gamer">
+          </div>
+
+          <div class="pc_gamers">
+            <p class="subtitulo"> Los videojuegos se han convertido en un componente mas de la vida cotidiana!</p>
+            <p class="parrafo">Descubre consolas y equipo gamer</p>
+            <button mat-raised-button class="boton">Ver mas</button>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="banner">
+      </div>
+
     </div>
 
 
-    <div class="banner">
-    </div>
 
     <app-footer></app-footer>
 

@@ -1,9 +1,15 @@
 <body>
-  <div class="card-titulo">
 
+  <div class="card-titulo">
   <h1 class="titulo">AGREGAR ARTICULO</h1>
   </div>
-  <div class="fondo">
+
+
+  <mat-progress-spinner mode="indeterminate" *ngIf="spinner == true">
+  </mat-progress-spinner>
+
+
+  <div class="fondo" *ngIf="spinner == false">
 
     <div class="form">
       <form (submit)="onSaveArticulo(articuloForm)" #articuloForm="ngForm">
@@ -97,12 +103,14 @@
          mat-raised-button
          color="warn"
          type="submit">
-          Guardar comentario
+          Guardar articulo
          </button>
     </form>
 
     </div>
 
   </div>
+
+  <app-footer></app-footer>
 
 </body>
