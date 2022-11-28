@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Articulo } from '../articulo.model';
 import { ArticuloService } from '../articulo.service';
 import { Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import { Subscription } from 'rxjs';
 })
 
 export class ArticuloListComponent implements OnInit, OnDestroy {
+  mode = "create";
  /* posts = [
     {title: "Primer post", content: "Este es el contenido del primer post"},
     {title: "Segundo post", content: "Este es el contenido del segundo post"},

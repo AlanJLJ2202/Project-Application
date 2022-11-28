@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
 
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from "@angular/core";
     styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent{}
+export class HeaderComponent implements OnInit{
+
+ngOnInit(){
+  this.search.valueChanges.subscribe
+}
+  search = new FormControl('');
+
+  //@Output('search') SearchEmitter = new EventEmitter<string>();
+}

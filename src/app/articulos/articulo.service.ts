@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import {map} from 'rxjs/operators';
+import { Router } from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 
@@ -10,7 +11,7 @@ export class ArticuloService{
   private articulos: Articulo[] = []; //primera matriz
   private articuloUpdate = new Subject<Articulo[]>();
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private router: Router){
 
   }
 
@@ -59,12 +60,14 @@ export class ArticuloService{
       cantidad: cantidad,
       categoria: categoria};
 
+
     this.http.post<{message: string, articuloId: string}>('http://localhost:3000/api', articulo)
     .subscribe((responseData)=>{
       const id = responseData.articuloId;
       articulo.id=id;
       this.articulos.push(articulo);
       this.articuloUpdate.next([...this.articulos]);
+      this.router.navigate(["/"]);
     });
   }
 
@@ -90,6 +93,7 @@ export class ArticuloService{
     updateArticulo[oldPostIndex]=articulo;
     this.articulos=updateArticulo;
     this.articuloUpdate.next([...this.articulos]);
+    this.router.navigate(["/"]);
       });}
     }
 

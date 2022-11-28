@@ -4,7 +4,7 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/articulos_api");
 
-mongoose.connect("mongodb+srv://admin:0TpvBms3jz8oxkLA@clusterproject.3w83j3v.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://mario:zhKxXJM0PTm8Qeyq@clusterproject2p.elybkvn.mongodb.net/?retryWrites=true&w=majority")
 .then(()=>{
   console.log('Base de datos conectada');
 })
