@@ -1,25 +1,52 @@
 //Agregar express
 const express = require("express");
 const Articulo = require('../models/articulo');
-const { route } = require("../app");
+//const { route } = require("../app");
 const router = express.Router();
+const multer =require("multer");
 
-router.post("",(req, res, next)=>{
-  const articulo = new Articulo({
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg',
+}
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const isValid = MIME_TYPE_MAP[file.mimetype];
+    let error = new Error("Extension no valida");
+    if(isValid){
+      error = null;
+    }
+    cb(error, "backend/images");
+  },
+  filename: (req, file, cb) => {
+    const name = file.originalname.toLowerCase().split(' ').join('-');
+    const ext = MIME_TYPE_MAP[file.mimetype];
+    cb(null, name + '-' + Date.now() + '.' + ext);
+  }
+})
+
+router.post("", multer({storage: storage}).single("image"), (req, res, next)=>{
+  const url = req.protocol + '://' + req.get("host");
+    const articulo = new Articulo({
     nombre: req.body.nombre,
     precio: req.body.precio,
     descripcion: req.body.descripcion,
     cantidad: req.body.cantidad,
-    categoria: req.body.categoria
+    categoria: req.body.categoria,
+    imagePath: url + "/images/" + req.file.filename
   });
 
   articulo.save().then(createdPost => {
     res.status(201).json({
       message: 'Articulo added succesfull',
-      id: createdPost._id
+      articulo:{
+        ...createdPost,
+        id: createdPost._id
+      }
     });
-  });
-
+  })
 });
 
 router.put("/:id", (req, res, next)=>{

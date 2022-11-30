@@ -1,0 +1,47 @@
+.example-spacer {
+  justify-content: right;
+  background-color: transparent;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0 auto;
+}
+
+.header{
+  background-color: transparent;
+  background-image:linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("src\assets\images\colors.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8%;
+}
+
+
+span{
+  color: white;
+}
+
+mat-icon{
+  color: white;
+}
+
+.seccion{
+  margin-left: 8%;
+}
+
+.agregar:hover{
+  background-color: red;
+}
+
+a{
+  color: white;
+}
+
+a:hover{
+  color: red;
+}
+
+mat-icon:hover{
+  color: red;
+}

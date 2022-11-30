@@ -30,6 +30,7 @@ import { ContenidoComponent } from './contenido/body/contenido.component';
 import { FooterComponent } from './contenido/footer/footer.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DndDirective } from './dnd.directive';
+import { CarritoComponent } from './carrito/carrito.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { DndDirective } from './dnd.directive';
     PostListComponent,
     ContenidoComponent,
     FooterComponent,
+    CarritoComponent,
     DndDirective
   ],
   imports: [
