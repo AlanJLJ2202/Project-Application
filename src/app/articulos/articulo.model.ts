@@ -5,4 +5,5 @@ export interface Articulo {
   descripcion: string;
   cantidad: Number;
   categoria: string;
+  imagePath: string;
 }

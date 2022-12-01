@@ -46,7 +46,8 @@ export class ArticuloService{
       precio: number,
       descripcion: string,
       cantidad: number,
-      categoria: string}>(
+      categoria: string,
+      imagePath: string}>(
       "http://localhost:3000/api/" + id); //la ruta del lado del servidor
   }
 
@@ -58,7 +59,8 @@ export class ArticuloService{
       precio: precio,
       descripcion: descripcion,
       cantidad: cantidad,
-      categoria: categoria};
+      categoria: categoria,
+      imagePath: responseData.post.imagePath};
 
 
     this.http.post<{message: string, articuloId: string}>('http://localhost:3000/api', articulo)

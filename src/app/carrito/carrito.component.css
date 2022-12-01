@@ -45,3 +45,39 @@ a:hover{
 mat-icon:hover{
   color: red;
 }
+
+h1{
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.contenedor{
+  height: 75%;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(11.4px);
+  -webkit-backdrop-filter: blur(11.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.content{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.lista{
+  width: 70%;
+  height: 100%;
+}
+
+.datos{
+  background-color: #C5C4C4;
+  width: 30%;
+  height: 100%;
+}

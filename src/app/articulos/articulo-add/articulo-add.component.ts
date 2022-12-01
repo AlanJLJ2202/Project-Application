@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ArticuloService } from '../articulo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Articulo } from '../articulo.model';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { mimeType } from "./mime-type.validator";
 
 @Component({
   selector: 'app-articulo-add',
@@ -11,16 +12,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./articulo-add.component.css']
 })
 
+export class ArticuloAddComponent implements OnInit{
 
-
-export class ArticuloAddComponent {
-
-  mode = "create";
+  private mode = "create";
   private id : string;
   public articulo: Articulo;
   public seleccionado = "Ropa";
   public selectControl : FormControl = new FormControl();
   public spinner = true;
+  form: FormGroup;
+  imagePreview: string;
 
   constructor (public articuloService: ArticuloService, public router: ActivatedRoute) {}
 
@@ -31,6 +32,20 @@ export class ArticuloAddComponent {
     setTimeout(() =>{this.spinner = false;},2500);
 
     console.log(this.spinner);
+
+    this.form = new FormGroup({
+      "nombre": new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]}),
+      "precio": new FormControl(null, {
+        validators: [Validators.required]}),
+      "descripcion": new FormControl(null, {
+        validators: [Validators.required]}),
+      "categoria": new FormControl(null, {
+        validators: [Validators.required]}),
+      'image': new FormControl(null,{
+        validators: [Validators.required],
+      asyncValidators: [mimeType]})
+    });
 
     this.router.paramMap.subscribe((paramMap) => {
       if (paramMap.has('id')){
@@ -43,7 +58,15 @@ export class ArticuloAddComponent {
             precio: articuloData.precio,
             descripcion: articuloData.descripcion,
             cantidad: articuloData.cantidad,
-            categoria: articuloData.categoria}
+            categoria: articuloData.categoria,
+            imagePath: articuloData.imagePath};
+            this.form.setValue({
+              nombre: this.articulo.nombre,
+              precio: this.articulo.precio,
+              descripcion: this.articulo.descripcion,
+              categoria: this.articulo.categoria,
+              image: this.articulo.imagePath
+            });
         });
 
       }else{

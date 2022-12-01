@@ -5,8 +5,6 @@ const mongoose = require("mongoose");
 const postRoutes = require("./routes/articulos_api");
 
 
-
-
 mongoose.connect("mongodb+srv://admin:0TpvBms3jz8oxkLA@clusterproject.3w83j3v.mongodb.net/?retryWrites=true&w=majority")
 .then(()=>{
   console.log('Base de datos conectada');
@@ -26,6 +24,7 @@ mongoose.connect("mongodb+srv://admin:0TpvBms3jz8oxkLA@clusterproject.3w83j3v.mo
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
+app.use("/images", express.static(path.join("backend/images")));
 
 app.use((req, res, next)=>{
   res.setHeader("Access-Control-Allow-Origin", "*");

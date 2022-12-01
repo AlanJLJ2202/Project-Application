@@ -49,15 +49,22 @@ router.post("", multer({storage: storage}).single("image"), (req, res, next)=>{
   })
 });
 
-router.put("/:id", (req, res, next)=>{
-  const articulo = new Articulo({
-  _id: req.body.id,
+router.put("/:id",  multer({storage: storage}).single("image"), (req, res, next)=>{
+  //const articulo = new Articulo({
+  let imagePath = req.body.imagePath;
+  if(req.file){
+    const url = req.protocol + '://' + req.get("host");
+    imagePath = url + "/images/" + req.file.filename
+  }
+  const articulo = {
+  //_id: req.body.id,
   nombre: req.body.nombre,
   precio: req.body.precio,
   descripcion: req.body.descripcion,
   cantidad: req.body.cantidad,
-  categoria: req.body.categoria
-});
+  categoria: req.body.categoria,
+  imagePath: imagePath
+};
   Articulo.updateOne({_id: req.params.id}, articulo).then(result=>{
     console.log(result);
     res.status(200).json({message: "Articulo updated succesfully"});
