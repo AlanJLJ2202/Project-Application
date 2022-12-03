@@ -13,12 +13,13 @@
   <div class="fondo" *ngIf="spinner == false">
 
     <div class="form">
-      <form (submit)="onSaveArticulo(articuloForm)" #articuloForm="ngForm">
+      <!--<form (submit)="onSaveArticulo(articuloForm)" #articuloForm="ngForm">-->
+        <form [formGroup]="form"(submit)="onSaveArticulo()">
         <div class="separador">
           <div class="textfield">
 
 
-             <mat-form-field>
+             <!--<mat-form-field>
                <textarea matInput
                type="text"
                name="nombre"
@@ -28,9 +29,16 @@
                #nombre="ngModel"></textarea>
 
                <mat-error *ngIf="nombre.invalid">El campo es obligatorio</mat-error>
+              </mat-form-field>-->
+
+              <mat-form-field>
+                <textarea matInput rows="6" formControlName = 'nombre'
+                placeholder="Ingresa el nombre del producto"> </textarea>
+                <mat-error *ngIf=" form.get('nombre').invalid">por favor ingrese el nombre</mat-error>
               </mat-form-field>
 
-             <mat-form-field>
+
+             <!--<mat-form-field>
                <textarea matInput
                (keypress)="numberOnly($event)" type="text"
                name="precio"
@@ -39,10 +47,16 @@
                required
                #precio="ngModel"></textarea>
                <mat-error *ngIf="">El campo es obligatorio</mat-error>
+              </mat-form-field>-->
+
+              <mat-form-field>
+                <textarea matInput rows="6" formControlName = 'precio'
+                placeholder="Ingresa precio de venta"> </textarea>
+                <mat-error *ngIf=" form.get('precio').invalid">por favor ingrese el precio</mat-error>
               </mat-form-field>
 
 
-              <mat-form-field>
+              <!--<mat-form-field>
                 <textarea matInput
                 type="text"
                 name="descripcion"
@@ -51,9 +65,15 @@
                 required
                 #descripcion="ngModel"></textarea>
                 <mat-error *ngIf="">El campo es obligatorio</mat-error>
-               </mat-form-field>
+               </mat-form-field>-->
 
                <mat-form-field>
+                <textarea matInput rows="6" formControlName = 'descripcion'
+                placeholder="Ingresa descripción de producto"> </textarea>
+                <mat-error *ngIf=" form.get('descripcion').invalid">por favor ingrese la descripcion</mat-error>
+              </mat-form-field>
+
+               <!--<mat-form-field>
                 <textarea matInput
                 (keypress)="numberOnly($event)" type="text"
                 name="cantidad"
@@ -62,7 +82,13 @@
                 required
                 #cantidad="ngModel"></textarea>
                 <mat-error *ngIf="">El campo es obligatorio</mat-error>
-               </mat-form-field>
+               </mat-form-field>-->
+
+               <mat-form-field>
+                <textarea matInput rows="6" formControlName = 'cantidad'
+                placeholder="Ingresa cantidad de producto"> </textarea>
+                <mat-error *ngIf=" form.get('cantidad').invalid">por favor ingrese la cantidad</mat-error>
+              </mat-form-field>
 
                <!--<mat-form-field>
                 <textarea matInput
@@ -75,16 +101,19 @@
                 <mat-error *ngIf="">El campo es obligatorio</mat-error>
                </mat-form-field>-->
 
+               <mat-form-field>
+                <textarea matInput rows="6" formControlName = 'categoria'
+                placeholder="Ingresa categoria de producto"> </textarea>
+                <mat-error *ngIf=" form.get('categoria').invalid">por favor ingrese la categoria</mat-error>
+              </mat-form-field>
 
-
-
-                  <mat-label>Seleccione la categoria</mat-label>
+                  <!--<mat-label>Seleccione la categoria</mat-label>
                   <select class='caja' [formControl]='selectControl' (change)='test()'>
                     <option value="Ropa">Ropa</option>
                     <option value="Calzado">Calzado</option>
                     <option value="Joyeria">Joyeria</option>
                     <option value="Deporte">Deporte</option>
-                    </select>
+                    </select>-->
 
 
 
@@ -92,11 +121,17 @@
             </div>
 
             <div class="dropzone">
-              <input type="file" #fileDropRef id="fileDropRef" (onchange)="onFileSelected($event)">
+              <!--<input type="file" #fileDropRef id="fileDropRef" (onchange)="onFileSelected($event)">
               <img src="" alt="">
               <h3>Arrastra y suelta tu imagen aqui</h3>
               <h3>ó</h3>
-              <label for="fileDropRef">Explorar archivos</label>
+              <label for="fileDropRef">Explorar archivos</label>-->
+              <button mat-stroked-button type="button" (click)="filePicker.click()">Selecciona Imagen</button>
+              <input type="file" #filePicker (change)="onImagePicked($event)">
+            </div>
+
+            <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid"><!--solo aparezca cuando lo ocupemos-->
+              <img [src]="imagePreview" [alt]="form.value.nombre">
             </div>
 
         </div>

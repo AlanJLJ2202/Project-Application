@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+//import { NgForm } from '@angular/forms';
 import { ArticuloService } from '../articulo.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Articulo } from '../articulo.model';
@@ -40,6 +40,8 @@ export class ArticuloAddComponent implements OnInit{
         validators: [Validators.required]}),
       "descripcion": new FormControl(null, {
         validators: [Validators.required]}),
+      "cantidad": new FormControl(null, {
+        validators: [Validators.required]}),
       "categoria": new FormControl(null, {
         validators: [Validators.required]}),
       'image': new FormControl(null,{
@@ -47,7 +49,7 @@ export class ArticuloAddComponent implements OnInit{
       asyncValidators: [mimeType]})
     });
 
-    this.router.paramMap.subscribe((paramMap) => {
+    this.router.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('id')){
         this.mode = 'edit';
         this.id = paramMap.get('id');
@@ -64,6 +66,7 @@ export class ArticuloAddComponent implements OnInit{
               nombre: this.articulo.nombre,
               precio: this.articulo.precio,
               descripcion: this.articulo.descripcion,
+              cantidad: articuloData.cantidad,
               categoria: this.articulo.categoria,
               image: this.articulo.imagePath
             });
@@ -75,6 +78,17 @@ export class ArticuloAddComponent implements OnInit{
       }
     });
  }
+
+  onImagePicked(event: Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({image: file});
+    this.form.get('image').updateValueAndValidity();//cambie valor
+    const reader = new FileReader();
+    reader.onload = () =>{
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
 
   numberOnly(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -95,37 +109,31 @@ export class ArticuloAddComponent implements OnInit{
 
 
 
-  onSaveArticulo(form: NgForm){
-    if(form.invalid){
+  onSaveArticulo(){
+    if(this.form.invalid){
       return;
     }
     if(this.mode == "create"){
-
-      console.log(this.seleccionado);
-
+      //console.log(this.seleccionado);
       this.articuloService.addArticulo(
-        form.value.nombre,
-        form.value.precio,
-        form.value.descripcion,
-        form.value.cantidad,
-        this.seleccionado
-        );
-
-
-    }else{
-
-      console.log('entra en actualizar');
-
+        this.form.value.nombre,
+        this.form.value.precio,
+        this.form.value.descripcion,
+        this.form.value.cantidad,
+        this.form.value.categoria,
+        this.form.value.image);
+      }else{
+      //console.log('entra en actualizar');
       this.articuloService.updateArticulo(
         this.id,
-        form.value.nombre,
-        form.value.precio,
-        form.value.descripcion,
-        form.value.cantidad,
-        this.seleccionado
-      );
+        this.form.value.nombre,
+        this.form.value.precio,
+        this.form.value.descripcion,
+        this.form.value.cantidad,
+        this.form.value.categoria,
+        this.form.value.image);
     }
-  form.resetForm();
+  this.form.reset();
   }
 }
 

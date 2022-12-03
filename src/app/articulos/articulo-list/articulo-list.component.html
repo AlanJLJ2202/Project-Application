@@ -6,11 +6,17 @@
         <mat-card-title>{{articulo.nombre}}</mat-card-title>
         <mat-card-subtitle>$ {{articulo.precio}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://i.pinimg.com/564x/22/23/ef/2223ef571eded8888744cfd3b59b8318.jpg" height="300px" width="200px" alt="Photo of a Shiba Inu">
+      <!--<img mat-card-image src="https://i.pinimg.com/564x/22/23/ef/2223ef571eded8888744cfd3b59b8318.jpg" height="300px" width="200px" alt="Photo of a Shiba Inu">-->
+      <div class="articulo-image">
+      <img [src]="articulo.imagePath" [alt]="articulo.nombre">
+      </div>
       <mat-card-content>
         <p>
           {{articulo.descripcion}}
         </p>
+      </mat-card-content>
+      <mat-card-content>
+        <p> {{articulo.catetegoria}} </p>
       </mat-card-content>
       <mat-card-actions>
           <button mat-fab class="edit"

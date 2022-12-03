@@ -3,7 +3,7 @@ const express = require("express");
 const Articulo = require('../models/articulo');
 //const { route } = require("../app");
 const router = express.Router();
-const multer =require("multer");
+const multer = require("multer");
 
 const MIME_TYPE_MAP = {
   'image/png': 'png',
