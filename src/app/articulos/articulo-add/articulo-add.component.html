@@ -121,18 +121,33 @@
             </div>
 
             <div class="dropzone">
-              <!--<input type="file" #fileDropRef id="fileDropRef" (onchange)="onFileSelected($event)">
-              <img src="" alt="">
-              <h3>Arrastra y suelta tu imagen aqui</h3>
-              <h3>ó</h3>
-              <label for="fileDropRef">Explorar archivos</label>-->
+
+              <!--
+                <input type="file" #fileDropRef id="fileDropRef" (onchange)="onImagePicked($event)" accept="image/*">
+              -->
+
               <button mat-stroked-button type="button" (click)="filePicker.click()">Selecciona Imagen</button>
-              <input type="file" #filePicker (change)="onImagePicked($event)">
+              <input type="file" #filePicker accept="image/*" (change)="onImagePicked($event)">
+
+              <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid"><!--solo aparezca cuando lo ocupemos-->
+                <img [src]="imagePreview" height="300px">
+              </div>
+
+              <div *ngIf="imagePreview == ''">
+                <h3>Arrastra y suelta tu imagen aqui</h3>
+                <h3>ó</h3>
+                <label for="fileDropRef">Explorar archivos</label>
+              </div>
+
+
+
+
+
+
+
             </div>
 
-            <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid"><!--solo aparezca cuando lo ocupemos-->
-              <img [src]="imagePreview" [alt]="form.value.nombre">
-            </div>
+
 
         </div>
          <button

@@ -61,7 +61,11 @@ export class ArticuloAddComponent implements OnInit{
             descripcion: articuloData.descripcion,
             cantidad: articuloData.cantidad,
             categoria: articuloData.categoria,
+            carrito: articuloData.carrito,
             imagePath: articuloData.imagePath};
+
+            this.imagePreview = this.articulo.imagePath;
+
             this.form.setValue({
               nombre: this.articulo.nombre,
               precio: this.articulo.precio,
@@ -84,6 +88,9 @@ export class ArticuloAddComponent implements OnInit{
     this.form.patchValue({image: file});
     this.form.get('image').updateValueAndValidity();//cambie valor
     const reader = new FileReader();
+
+    console.log(file);
+
     reader.onload = () =>{
       this.imagePreview = reader.result as string;
     };
@@ -121,6 +128,7 @@ export class ArticuloAddComponent implements OnInit{
         this.form.value.descripcion,
         this.form.value.cantidad,
         this.form.value.categoria,
+        this.form.value.carrito,
         this.form.value.image);
       }else{
       //console.log('entra en actualizar');
@@ -131,6 +139,7 @@ export class ArticuloAddComponent implements OnInit{
         this.form.value.descripcion,
         this.form.value.cantidad,
         this.form.value.categoria,
+        this.form.value.carrito,
         this.form.value.image);
     }
   this.form.reset();

@@ -6,7 +6,8 @@ const articuloModelo = mongoose.Schema({
   descripcion: {type: String, required: true},
   cantidad: {type: Number, required: true},
   categoria: {type: String, required: true},
-  imagePath: {type: String, required: true}
+  imagePath: {type: String, required: true},
+  carrito: {type: Boolean, required: false}
   //fecha: {type: Date, required: true},
   //usuario: {type: mongoose.Schema.Types.ObjectId, ref: "Usuario", required: true}
 });

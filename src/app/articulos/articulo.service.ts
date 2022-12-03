@@ -48,11 +48,12 @@ export class ArticuloService{
       descripcion: string,
       cantidad: number,
       categoria: string,
+      carrito: boolean,
       imagePath: string}>(
       "http://localhost:3000/api/" + id); //la ruta del lado del servidor
   }
 
-  addArticulo(nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string, image: File){
+  addArticulo(nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string, carrito: boolean, image: File){
     const postData = new FormData();
     let precioAsString: string = String (precio);
     let cantidadAsString: string = String (cantidad);
@@ -81,6 +82,7 @@ export class ArticuloService{
         descripcion: descripcion,
         cantidad: cantidad,
         categoria: categoria,
+        carrito: carrito,
         imagePath: responseData.articulo.imagePath}
       /*const id = responseData.articuloId;
       articulo.id=id;*/
@@ -97,6 +99,7 @@ export class ArticuloService{
     descripcion:string,
     cantidad:number,
     categoria:string,
+    carrito:boolean,
     image: File | string){
 
     let postData: Articulo | FormData;
@@ -119,6 +122,7 @@ export class ArticuloService{
         descripcion: descripcion,
         cantidad: cantidad,
         categoria: categoria,
+        carrito: carrito,
         imagePath: image
       };
     }
@@ -137,6 +141,7 @@ export class ArticuloService{
         descripcion: descripcion,
         cantidad: cantidad,
         categoria: categoria,
+        carrito: carrito,
         imagePath: ""
     }
     updateArticulo[oldPostIndex]=articulo;

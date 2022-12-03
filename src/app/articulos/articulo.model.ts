@@ -5,5 +5,6 @@ export interface Articulo {
   descripcion: string;
   cantidad: Number;
   categoria: string;
+  carrito: boolean;
   imagePath: string;
 }

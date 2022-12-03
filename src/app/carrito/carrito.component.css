@@ -6,6 +6,7 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   margin: 0 auto;
+
 }
 
 .header{
@@ -49,6 +50,7 @@ mat-icon:hover{
 h1{
   margin-top: 50px;
   margin-left: 50px;
+  margin-right: 50px;
 }
 
 .contenedor{
@@ -80,4 +82,136 @@ h1{
   background-color: #C5C4C4;
   width: 30%;
   height: 100%;
+}
+
+.sublista{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.columnas{
+  display: flex;
+}
+
+.Producto{
+  margin-left: 50px;
+}
+
+.Cantidad{
+  margin-left: 250px;
+}
+
+.Precio{
+  margin-left: 110px;
+}
+
+.Total{
+  margin-left: 110px;
+}
+
+.producto-item{
+  margin-left: 50px;
+  margin-bottom: 20px;
+  height: 90px;
+  width: 750px;
+  display: flex;
+}
+
+.imagen{
+  height: 90px;
+  width: 100px;
+  background-color: green;
+  margin-right: 10px;
+}
+
+
+.nombre-producto{
+  font-weight: 500;
+}
+
+.categoria-producto{
+  color: red;
+}
+
+.descripcion{
+  width: 230px;
+}
+
+
+.cantidad-producto{
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+
+.precio-producto{
+  margin-top: 20px;
+  margin-left: 170px;
+}
+
+.total-producto{
+  margin-top: 20px;
+  margin-left: 155px;
+}
+
+
+.resumen{
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 50px;
+}
+
+
+.total{
+  margin-top: 30px;
+  display: flex;
+  margin-left: 20px;
+}
+
+.total-precio{
+  margin-left: 200px;
+}
+
+.cupon{
+  margin-top: 60px;
+}
+
+mat-form-field{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-left: 50px;
+  width: 250px;
+}
+
+textarea{
+  background-color: white;
+  border-radius: 5px;
+}
+
+.aplicar{
+  background-color: red;
+  color: white;
+  height: 35px;
+  width: 100px;
+  margin-left: 130px;
+}
+
+.return{
+  color: royalblue;
+}
+
+.regresar{
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.pagar{
+  background-color: royalblue;
+  color: white;
+  height: 35px;
+  width: 200px;
+  margin-left: 80px;
+  margin-top: 80px;
 }
