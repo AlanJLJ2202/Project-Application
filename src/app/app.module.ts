@@ -31,6 +31,7 @@ import { FooterComponent } from './contenido/footer/footer.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DndDirective } from './dnd.directive';
 import { CarritoComponent } from './carrito/carrito.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { CarritoComponent } from './carrito/carrito.component';
     FooterComponent,
     CarritoComponent,
     DndDirective
+
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxPayPalModule
   ],
   providers: [
     ArticuloService,
