@@ -42,7 +42,7 @@
 
         <div class="sublista">
           <h1>CARRITO DE COMPRAS</h1>
-          <h1>3 Items</h1>
+          <h1>{{articulos.length}} Items</h1>
         </div>
         <HR SIZE=1 WIDTH="95%" COLOR="black" ALIGN = CENTER>
 
@@ -53,63 +53,31 @@
           <h2 class="Total">Total</h2>
         </div>
 
-        <div class="producto-item">
-          <div class="imagen">
+        <div class="iteracion" *ngFor="let articulo of articulos">
+
+          <div class="producto-item">
+            <div class="imagen">
+              <img mat-card-image [src]="articulo.imagePath" [alt]="articulo.nombre" height="90px" width="90px">
+            </div>
+            <div class="descripcion">
+              <h4 class="nombre-producto">{{articulo.nombre}}</h4>
+              <h4 class="categoria-producto">{{articulo.categoria}}</h4>
+              <button class="quitar" (click)="onSaveCarrito(articulo.id, articulo.nombre, articulo.precio, articulo.descripcion, articulo.cantidad, articulo.categoria, false, articulo.imagePath)">
+                Quitar de la lista
+              </button>
+            </div>
+            <div class="cantidad-producto">
+              <p>1</p>
+            </div>
+            <div class="precio-producto">
+              <p>{{articulo.precio}}</p>
+            </div>
+            <div class="total-producto">
+              <p>{{articulo.precio}}</p>
+            </div>
           </div>
-          <div class="descripcion">
-            <h4 class="nombre-producto">Nombre del producto</h4>
-            <h4 class="categoria-producto">Categoria</h4>
-          </div>
-          <div class="cantidad-producto">
-            <p>1</p>
-          </div>
-          <div class="precio-producto">
-            <p>1</p>
-          </div>
-          <div class="total-producto">
-            <p>1</p>
-          </div>
+
         </div>
-
-        <div class="producto-item">
-          <div class="imagen">
-          </div>
-          <div class="descripcion">
-            <h4 class="nombre-producto">Nombre del producto</h4>
-            <h4 class="categoria-producto">Categoria</h4>
-          </div>
-          <div class="cantidad-producto">
-            <p>1</p>
-          </div>
-          <div class="precio-producto">
-            <p>1</p>
-          </div>
-          <div class="total-producto">
-            <p>1</p>
-          </div>
-        </div>
-
-        <div class="producto-item">
-          <div class="imagen">
-          </div>
-          <div class="descripcion">
-            <h4 class="nombre-producto">Nombre del producto</h4>
-            <h4 class="categoria-producto">Categoria</h4>
-          </div>
-          <div class="cantidad-producto">
-            <p>1</p>
-          </div>
-          <div class="precio-producto">
-            <p>1</p>
-          </div>
-          <div class="total-producto">
-            <p>1</p>
-          </div>
-        </div>
-
-
-
-
 
       </div>
 
@@ -119,11 +87,11 @@
 
         <div class="total">
           <h2>
-            Items 3
+            Items {{articulos.length}}
           </h2>
 
           <h2 class="total-precio">
-            $300
+            $ {{sumatoria}}
           </h2>
         </div>
 
@@ -151,17 +119,10 @@
           </div>
 
 
-
-          <button mat-raised-button class="pagar">
-            Pagar
-          </button>
-
-          <button *ngIf="!showPaypalButtons" (click)="pay()">Pagar con paypal</button>
-
-
+          <button mat-raised-button *ngIf="!showPaypalButtons" (click)="pay()" class="paypal">Pagar con paypal</button>
           <ngx-paypal *ngIf="showPaypalButtons" [config]="payPalConfig">
           </ngx-paypal>
-          <button *ngIf="showPaypalButtons" (click)="back()">Volver atras</button>
+          <button mat-raised-button *ngIf="showPaypalButtons" (click)="back()">Volver atras</button>
 
       </div>
     </div>

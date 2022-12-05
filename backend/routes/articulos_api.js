@@ -35,6 +35,7 @@ router.post("", multer({storage: storage}).single("image"), (req, res, next)=>{
     descripcion: req.body.descripcion,
     cantidad: req.body.cantidad,
     categoria: req.body.categoria,
+    carrito: req.body.carrito,
     imagePath: url + "/images/" + req.file.filename
   });
 
@@ -63,11 +64,12 @@ router.put("/:id",  multer({storage: storage}).single("image"), (req, res, next)
   descripcion: req.body.descripcion,
   cantidad: req.body.cantidad,
   categoria: req.body.categoria,
+  carrito: req.body.carrito,
   imagePath: imagePath
 };
   Articulo.updateOne({_id: req.params.id}, articulo).then(result=>{
     console.log(result);
-    res.status(200).json({message: "Articulo updated succesfully"});
+    res.status(200).json({message: "Articulo updated succesfully", articulo: articulo});
   })
 });
 

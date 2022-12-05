@@ -128,7 +128,7 @@ export class ArticuloAddComponent implements OnInit{
         this.form.value.descripcion,
         this.form.value.cantidad,
         this.form.value.categoria,
-        this.form.value.carrito,
+        'false',
         this.form.value.image);
       }else{
       //console.log('entra en actualizar');
@@ -139,7 +139,7 @@ export class ArticuloAddComponent implements OnInit{
         this.form.value.descripcion,
         this.form.value.cantidad,
         this.form.value.categoria,
-        this.form.value.carrito,
+        'false',
         this.form.value.image);
     }
   this.form.reset();

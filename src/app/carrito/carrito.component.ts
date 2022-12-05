@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { render } from 'creditcardpayments/creditCardPayments';
 import { ICreateOrderRequest } from "ngx-paypal";
+import { ArticuloService } from "../articulos/articulo.service";
+import { Articulo } from "../articulos/articulo.model";
+import { Subscription } from "rxjs";
 
 
 @Component({
@@ -10,24 +13,34 @@ import { ICreateOrderRequest } from "ngx-paypal";
     styleUrls: ['./carrito.component.css']
 })
 
-export class CarritoComponent{
+export class CarritoComponent implements OnInit{
   public payPalConfig: any;
   public showPaypalButtons: boolean;
 
 
-  /*constructor(){
-    render(
-      {
-        id: "#myPaypalButtons",
-        currency: "USD",
-        value: "100.00",
-        onApprove: (details) => {
-          alert("Transaction Successfull");
-        }
-      }
-    );
-  }*/
+  articulos: Articulo[] = [];
+  private articuloSub: Subscription;
+  public sumatoria:any = 0;
+
+  constructor(public articulosService: ArticuloService){
+
+  }
+
   ngOnInit() {
+      this.articulosService.getArticulos();
+      this.articuloSub = this.articulosService.getArticulosUpadateListener()
+      .subscribe((articulos: Articulo[]) =>{
+        articulos.forEach(articulo => {
+          console.log('test', articulo.carrito);
+          if(articulo.carrito == "true"){
+            console.log('entra a la condicion');
+            this.articulos.push(articulo);
+            this.sumatoria = this.sumatoria + articulo.precio;
+          }
+        });
+      });
+
+
     this.payPalConfig = {
       currency: "EUR",
       clientId: "Aeu1z2WebkCoboZdntNnr79SGMZPIEVSjB1Skd_MLfETDQprND2-fYKndl9R4n1S4_SwG3nr3ezDVXdh",
@@ -105,5 +118,11 @@ export class CarritoComponent{
   back(){
     this.showPaypalButtons = false;
   }
+
+  onSaveCarrito(id: string, nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string, carrito:string,imagePath: string){
+    this.articulosService.updateCarrito(id, nombre, precio, descripcion, cantidad, categoria, carrito, imagePath);
+  }
+
+
 }
 

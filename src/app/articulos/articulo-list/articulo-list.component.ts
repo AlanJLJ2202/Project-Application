@@ -34,7 +34,6 @@ export class ArticuloListComponent implements OnInit, OnDestroy {
     .subscribe((articulos: Articulo[]) =>{
       this.articulos = articulos;
     });
-
   }
   ngOnDestroy(){
     this.articuloSub.unsubscribe();
@@ -42,6 +41,11 @@ export class ArticuloListComponent implements OnInit, OnDestroy {
 
   onDelete(id: string){
     this.articulosService.deleteArticulo(id);
+  }
+
+
+  onSaveCarrito(id: string, nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string, carrito:string,imagePath: string){
+      this.articulosService.updateCarrito(id, nombre, precio, descripcion, cantidad, categoria, carrito, imagePath);
   }
 
 }

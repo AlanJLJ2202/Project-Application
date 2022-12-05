@@ -122,8 +122,11 @@ h1{
 .imagen{
   height: 90px;
   width: 100px;
-  background-color: green;
   margin-right: 10px;
+}
+
+.quitar{
+  color: red;
 }
 
 
@@ -132,7 +135,7 @@ h1{
 }
 
 .categoria-producto{
-  color: red;
+  color: green;
 }
 
 .descripcion{
@@ -214,4 +217,11 @@ textarea{
   width: 200px;
   margin-left: 80px;
   margin-top: 80px;
+}
+
+.paypal{
+  margin-top: 80px;
+  margin-left: 120px;
+  background-color: royalblue;
+  color: white;
 }

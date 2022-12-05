@@ -23,7 +23,7 @@
         </p>
       </mat-card-content>
       <mat-card-content>
-        <p> {{articulo.catetegoria}} </p>
+        <p> {{articulo.categoria}} </p>
       </mat-card-content>
       <mat-card-actions>
           <button mat-fab class="edit"
@@ -36,8 +36,7 @@
             <mat-icon>delete</mat-icon>
           </button>
 
-          <button mat-fab class="shoping"
-          [routerLink]="['/carrito', articulo.id]" aria-label="Example icon button with a bookmark icon">
+          <button mat-fab class="shoping" (click)="onSaveCarrito(articulo.id, articulo.nombre, articulo.precio, articulo.descripcion, articulo.cantidad, articulo.categoria, true, articulo.imagePath)" aria-label="Example icon button with a bookmark icon">
             <mat-icon>shopping_cart</mat-icon>
           </button>
 

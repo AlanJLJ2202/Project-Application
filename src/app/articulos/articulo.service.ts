@@ -26,6 +26,7 @@ export class ArticuloService{
         cantidad: articulo.cantidad,
         categoria: articulo.categoria,
         id: articulo._id,
+        carrito: articulo.carrito,
         imagePath: articulo.imagePath
         };
       })
@@ -48,12 +49,12 @@ export class ArticuloService{
       descripcion: string,
       cantidad: number,
       categoria: string,
-      carrito: boolean,
+      carrito: string,
       imagePath: string}>(
       "http://localhost:3000/api/" + id); //la ruta del lado del servidor
   }
 
-  addArticulo(nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string, carrito: boolean, image: File){
+  addArticulo(nombre: string, precio: number, descripcion: string, cantidad: number, categoria: string, carrito: string, image: File){
     const postData = new FormData();
     let precioAsString: string = String (precio);
     let cantidadAsString: string = String (cantidad);
@@ -62,15 +63,8 @@ export class ArticuloService{
     postData.append("descripcion", descripcion);
     postData.append("cantidad", cantidadAsString);
     postData.append("categoria", categoria);
+    postData.append("carrito", carrito);
     postData.append("image", image, nombre);
-    /*const articulo: Articulo =
-    { id: null,
-      nombre: nombre,
-      precio: precio,
-      descripcion: descripcion,
-      cantidad: cantidad,
-      categoria: categoria,
-      imagePath: responseData.post.imagePath};*/
 
 
     this.http.post<{message: string, articulo: Articulo}>('http://localhost:3000/api', postData)
@@ -99,7 +93,7 @@ export class ArticuloService{
     descripcion:string,
     cantidad:number,
     categoria:string,
-    carrito:boolean,
+    carrito:string,
     image: File | string){
 
     let postData: Articulo | FormData;
@@ -150,6 +144,77 @@ export class ArticuloService{
     this.router.navigate(["/"]);
       });
     }
+
+
+    updateCarrito(
+      id:string,
+      nombre:string,
+      precio:number,
+      descripcion:string,
+      cantidad:number,
+      categoria:string,
+      carrito:string,
+      image: File | string){
+
+      let postData: Articulo | FormData;
+      let precioAsString: string = String (precio);
+      let cantidadAsString: string = String (cantidad);
+      let carritoAsString: string = String (carrito);
+      if(typeof image === "object"){
+        postData = new FormData();
+        postData.append("id", id);
+        postData.append("nombre", nombre);
+        postData.append("precio", precioAsString);
+        postData.append("descripcion", descripcion);
+        postData.append("cantidad", cantidadAsString);
+        postData.append("categoria", categoria);
+        postData.append("carrito", carritoAsString);
+        postData.append("image", image, nombre);
+      }else{
+        postData ={
+          id: id,
+          nombre: nombre,
+          precio: precio,
+          descripcion: descripcion,
+          cantidad: cantidad,
+          categoria: categoria,
+          carrito: carrito,
+          imagePath: image
+        };
+      }
+
+      /*const articulo: Articulo =
+      {id:id, nombre:nombre, precio: precio, descripcion:descripcion, categoria:categoria, cantidad:cantidad};*/
+
+      this.http.put("http://localhost:3000/api/" + id, postData)
+      .subscribe(response => {
+        console.log('respuesta ', response['articulo']['imagePath']);
+      const updateArticulo=[...this.articulos];
+      const oldPostIndex = updateArticulo.findIndex(p => p.id === id);
+      const articulo: Articulo ={
+          id: id,
+          nombre: nombre,
+          precio: precio,
+          descripcion: descripcion,
+          cantidad: cantidad,
+          categoria: categoria,
+          carrito: carrito,
+          imagePath: response['articulo']['imagePath']
+      }
+        updateArticulo[oldPostIndex]=articulo;
+        this.articulos=updateArticulo;
+        this.articuloUpdate.next([...this.articulos]);
+        //this.router.navigate(["/"]);
+
+        if(carritoAsString == 'true'){
+          alert('Articulo agregado al carrito');
+        }else if(carritoAsString == "false"){
+          alert('Articulo eliminado del carrito');
+          window.location.reload();
+        }
+
+        });
+      }
 
 
     deleteArticulo(id: string){
