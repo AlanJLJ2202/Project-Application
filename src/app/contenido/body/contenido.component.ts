@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -17,7 +18,10 @@ export class ContenidoComponent{
 
   ngOnInit(){
     setTimeout(() =>{this.spinner = false;},2500);
+    this.search.valueChanges.subscribe;
   }
+
+    search = new FormControl('');
 
 
 }

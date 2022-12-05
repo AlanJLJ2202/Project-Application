@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <body>
     <div class="card-titulo">
     <h1 class="titulo">TIENDA ONLINE</h1>
@@ -11,16 +12,12 @@
 
     <div class="delay" *ngIf="spinner == false">
 
-      <p class="subtitulo">
-        Articulos
-      </p>
-
       <app-articulo-list></app-articulo-list>
 
       <div class="ver_mas">
         <p class="subtitulo">LOS MEJORES PRECIOS<p>
         <p class = "parrafo">Nueva temporada de descuentos</p>
-        <button mat-raised-button class="boton">Ver mas</button>
+        <button mat-raised-button class="boton" [routerLink]="['/mejoresprecios']">Ver mas</button>
       </div>
 
 

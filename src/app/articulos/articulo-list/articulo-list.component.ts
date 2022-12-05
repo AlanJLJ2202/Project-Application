@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Articulo } from '../articulo.model';
 import { ArticuloService } from '../articulo.service';
 import { Subscription } from 'rxjs';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 
 
 
@@ -28,12 +28,23 @@ export class ArticuloListComponent implements OnInit, OnDestroy {
   constructor(public articulosService: ArticuloService){
 
   }
+
+  search = new FormControl('');
+  dataSource:any;
+
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase();
+  }
+
   ngOnInit(){
     this.articulosService.getArticulos();
     this.articuloSub = this.articulosService.getArticulosUpadateListener()
     .subscribe((articulos: Articulo[]) =>{
       this.articulos = articulos;
+      this.dataSource = articulos;
     });
+    this.search.valueChanges.subscribe;
   }
   ngOnDestroy(){
     this.articuloSub.unsubscribe();

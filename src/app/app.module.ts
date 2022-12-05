@@ -31,7 +31,9 @@ import { FooterComponent } from './contenido/footer/footer.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DndDirective } from './dnd.directive';
 import { CarritoComponent } from './carrito/carrito.component';
+import { MejorespreciosComponent } from './mejoresPrecios/precios.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { SearchPipe } from './search.pipe';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
     ContenidoComponent,
     FooterComponent,
     CarritoComponent,
-    DndDirective
+    DndDirective,
+    SearchPipe,
+    MejorespreciosComponent
 
   ],
   imports: [

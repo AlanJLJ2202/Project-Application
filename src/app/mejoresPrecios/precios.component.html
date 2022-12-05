@@ -1,21 +1,40 @@
+<div class="header">
+  <mat-toolbar class="example-spacer">
 
-<div class="buscador">
-  <div class="form_buscar">
-    <mat-form-field class="fill">
-      <mat-label>Buscar</mat-label>
-      <input #txtSearch matInput>
-    </mat-form-field>
-    <button mat-fab class="buy" aria-label="Example icon button with a bookmark icon">
-      <mat-icon>search</mat-icon>
-    </button>
-  </div>
- </div>
+    <div [routerLink]="['/create']" class="seccion">
+      <a>Agregar articulo</a>
 
- <p class="subtitulo">
-  Articulos
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+     <div [routerLink]="['/carrito']" class="seccion">
+       <a>Carrito</a>
+
+       <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+         <mat-icon>shopping_cart</mat-icon>
+       </button>
+     </div>
+
+
+     <div [routerLink]="['/']" class="seccion">
+       <a>Home</a>
+
+       <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>home</mat-icon>
+      </button>
+     </div>
+
+  </mat-toolbar>
+</div>
+
+
+<p class="subtitulo">
+  MEJORES PRECIOS
   </p>
 
-<div class="carrusel" *ngFor="let articulo of articulos | search: 'nombre' : txtSearch.value">
+<div class="carrusel" *ngFor="let articulo of articulos">
   <div class="card">
     <mat-card class="example-card">
       <mat-card-header>
